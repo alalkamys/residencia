@@ -1,7 +1,6 @@
 <!-- markdownlint-configure-file {
   "MD033": false,
-  "MD041": false,
-  "MD051": false
+  "MD041": false
 } -->
 
 <div align="center">
@@ -13,7 +12,7 @@
 [Key Features](#key-features) •
 [Methodology](#methodology) •
 [Getting Started](#getting-started) •
-[Developed By](#⚔️-developed-by) •
+[Developed By](#%EF%B8%8F-developed-by) •
 [Author](#book-author)
 
 <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome Badge"/>
