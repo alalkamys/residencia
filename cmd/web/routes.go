@@ -20,5 +20,11 @@ func routes(_ *config.AppConfig) http.Handler {
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/about", handlers.Repo.About)
 
+	// http.FileServer() takes a root FileSystem and returns a Handler
+	fileServer := http.FileServer(http.Dir("./static/"))
+
+	// takes the url that go gets and modifies it from the web server request into something it knows how to handle
+	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
 	return mux
 }
