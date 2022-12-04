@@ -146,23 +146,9 @@
             format: "dd/mm/yyyy",
         });
 
-        function alertSuccess(msg) {
+        function notify(msg, msgType) {
             notie.alert({
-                type: "success",
-                text: msg,
-            });
-        }
-
-        function alertError(msg) {
-            notie.alert({
-                type: "error",
-                text: msg,
-            });
-        }
-
-        function alertWarning(msg) {
-            notie.alert({
-                type: "warning",
+                type: msgType,
                 text: msg,
             });
         }
