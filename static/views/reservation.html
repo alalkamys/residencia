@@ -129,6 +129,8 @@
     <script src="https://unpkg.com/notie"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        let attention = Prompt();
+
         (() => {
             "use strict";
 
@@ -154,7 +156,13 @@
 
         document.getElementById("myBtn").addEventListener("click", (e) => {
             //notify("This is my message", "success");
-            notifyModal("title", "<em>hello, world!</em>", "success", "My text for my button");
+            //notifyModal(
+            //    "title",
+            //    "<em>hello, world!</em>",
+            //    "success",
+            //    "My text for my button"
+            //);
+            attention.toast();
         });
 
         const elem = document.getElementById("reservation-dates");
@@ -174,8 +182,22 @@
                 title: title,
                 html: html,
                 icon: icon,
-                confirmButtonText: confirmButtonText
-            })
+                confirmButtonText: confirmButtonText,
+            });
+        }
+
+        function Prompt() {
+            let toast = () => {
+                console.log("clicked button and got toast");
+            };
+            let success = () => {
+                console.log("clicked button and got success");
+            };
+
+            return {
+                toast: toast,
+                success: success,
+            };
         }
     </script>
 </body>
