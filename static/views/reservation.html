@@ -107,17 +107,6 @@
                 </form>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <p id="myParagraph">this is some text</p>
-                <p>
-                    <button id="myBtn" class="btn btn-outline-secondary">
-                        Click Me
-                    </button>
-                </p>
-            </div>
-        </div>
     </div>
     <!-- body end -->
     <!-- footer start -->
@@ -131,18 +120,6 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <script>
-        console.log("I am using JS");
-        // alert("hello!");
-        //let myParagraph = document.getElementById("myParagraph");
-        //myParagraph.classList.add("red-text");
-        document.getElementById("myBtn").addEventListener("click", (e) => {
-            let myParagraph = document.getElementById("myParagraph");
-            if (myParagraph.classList.contains("red-text")) {
-                myParagraph.classList.remove("red-text");
-            } else {
-                myParagraph.classList.add("red-text");
-            }
-        });
     </script>
 </body>
 
