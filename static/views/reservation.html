@@ -10,6 +10,7 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker-bs5.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css" />
     <style>
         .my-footer {
             height: 5em;
@@ -85,15 +86,17 @@
                         <div class="col">
                             <div class="row" id="reservation-dates">
                                 <div class="col">
-                                    <input required type="text" class="form-control" name="start" placeholder="Arrival">
+                                    <input required type="text" class="form-control" name="start"
+                                        placeholder="Arrival" />
                                 </div>
                                 <div class="col">
-                                    <input required type="text" class="form-control" name="end" placeholder="Departure">
+                                    <input required type="text" class="form-control" name="end"
+                                        placeholder="Departure" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr />
                     <button type="submit" class="btn btn-primary">
                         Search Availability
                     </button>
@@ -113,6 +116,7 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+    <script src="https://unpkg.com/notie"></script>
     <script>
         (() => {
             "use strict";
@@ -137,10 +141,31 @@
             });
         })();
 
-        const elem = document.getElementById('reservation-dates');
+        const elem = document.getElementById("reservation-dates");
         const rangepicker = new DateRangePicker(elem, {
-            format: "dd/mm/yyyy"
-        });         
+            format: "dd/mm/yyyy",
+        });
+
+        function alertSuccess(msg) {
+            notie.alert({
+                type: "success",
+                text: msg,
+            });
+        }
+
+        function alertError(msg) {
+            notie.alert({
+                type: "error",
+                text: msg,
+            });
+        }
+
+        function alertWarning(msg) {
+            notie.alert({
+                type: "warning",
+                text: msg,
+            });
+        }
     </script>
 </body>
 
