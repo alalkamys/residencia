@@ -127,6 +127,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
     <script src="https://unpkg.com/notie"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         (() => {
             "use strict";
@@ -152,8 +153,9 @@
         })();
 
         document.getElementById("myBtn").addEventListener("click", (e) => {
-            notify("This is my message", "success");
-        });        
+            //notify("This is my message", "success");
+            notifyModal("title", "<em>hello, world!</em>", "success", "My text for my button");
+        });
 
         const elem = document.getElementById("reservation-dates");
         const rangepicker = new DateRangePicker(elem, {
@@ -165,6 +167,15 @@
                 type: msgType,
                 text: msg,
             });
+        }
+
+        function notifyModal(title, html, icon, confirmButtonText) {
+            Swal.fire({
+                title: title,
+                html: html,
+                icon: icon,
+                confirmButtonText: confirmButtonText
+            })
         }
     </script>
 </body>
