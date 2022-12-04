@@ -103,6 +103,16 @@
                 </form>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <p id="myParagraph">this is some text</p>
+                <p>
+                    <button id="myBtn" class="btn btn-outline-secondary">
+                        Click Me
+                    </button>
+                </p>
+            </div>
+        </div>
     </div>
     <!-- body end -->
     <!-- footer start -->
@@ -140,6 +150,10 @@
                 );
             });
         })();
+
+        document.getElementById("myBtn").addEventListener("click", (e) => {
+            notify("This is my message", "success");
+        });        
 
         const elem = document.getElementById("reservation-dates");
         const rangepicker = new DateRangePicker(elem, {
