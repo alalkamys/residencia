@@ -162,8 +162,8 @@
             //    "success",
             //    "My text for my button"
             //);
-            attention.success({
-                msg: "Hello, World!",
+            attention.error({
+                msg: "Ooops!",
             });
         });
 
@@ -208,6 +208,7 @@
 
                 Toast.fire();
             };
+
             let success = (c) => {
                 const { msg = "", title = "", footer = "" } = c;
 
@@ -219,9 +220,21 @@
                 });
             };
 
+            let error = (c) => {
+                const { msg = "", title = "", footer = "" } = c;
+
+                Swal.fire({
+                    icon: "error",
+                    title: title,
+                    text: msg,
+                    footer: footer,
+                });
+            };
+
             return {
                 toast: toast,
                 success: success,
+                error: error,
             };
         }
     </script>
