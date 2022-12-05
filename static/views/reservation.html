@@ -168,22 +168,22 @@
                     <div class="col">
                         <div class="row" id="reservation-dates-modal">
                             <div class="col">
-                                <input required type="text" class="form-control" name="start" id="start"
+                                <input disabled required type="text" class="form-control" name="start" id="start"
                                     placeholder="Arrival" />
                             </div>
                             <div class="col">
-                                <input required type="text" class="form-control" name="end" id="end"
+                                <input disabled required type="text" class="form-control" name="end" id="end"
                                     placeholder="Departure" />
                             </div>
                         </div>
                     </div>
                 </div>
             </form>            
-            `
-            
+            `;
+
             attention.custom({
                 msg: html,
-                title: "Choose your dates"
+                title: "Choose your dates",
             });
         });
 
@@ -260,6 +260,17 @@
                     backdrop: false,
                     focusConfirm: false,
                     showCancelButton: true,
+                    willOpen: () => {
+                        const elem = document.getElementById("reservation-dates-modal");
+                        const rangePicker = new DateRangePicker(elem, {
+                            format: "dd/mm/yyyy",
+                            showOnFocus: true,
+                        });
+                    },
+                    didOpen: () => {
+                        document.getElementById("start").removeAttribute("disabled");
+                        document.getElementById("end").removeAttribute("disabled");
+                    },
                     preConfirm: () => {
                         return [
                             document.getElementById("start").value,
