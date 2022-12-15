@@ -2,22 +2,14 @@
 
 {{ define "content" }}
 
+<!-- body start -->
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>This is the about page</h1>
-            
-      <p>This came from the template: {{ index .StringMap "test" }}</p>
-
-      <p>
-        {{- if ne (index .StringMap "remote_ip") "" }}
-        your remote IP address is {{ index .StringMap "remote_ip" }}
-        {{- else }}
-        I don't know your IP address yet. Vist <a href="/">Home page</a> so I can set it
-        {{- end }}
-      </p>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mt-3">About Page</h1>
+        </div>
     </div>
-  </div>
 </div>
+<!-- body end -->
 
 {{ end }}
