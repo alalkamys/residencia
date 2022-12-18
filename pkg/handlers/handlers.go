@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/config"
@@ -71,7 +72,11 @@ func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 
 // PostAvailability renders the search availability page
 func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Posted to search availability"))
+	// r.Form.Get() will always return string type
+	start := r.Form.Get("start")
+	end := r.Form.Get("end")
+
+	w.Write([]byte(fmt.Sprintf("Start date is %s, and end date is %s", start, end)))
 }
 
 // Contact renders the contact page
