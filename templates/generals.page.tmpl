@@ -59,6 +59,9 @@
         attention.custom({
             msg: html,
             title: "Choose your dates",
+            callback: result => {
+                console.log("called");
+            }
         });
         });
 </script>
