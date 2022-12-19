@@ -6,8 +6,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <img src="/static/images/generals-quarters.png"
-                class="img-fluid img-thumbnail mx-auto d-block room-image" alt="room image">
+            <img src="/static/images/generals-quarters.png" class="img-fluid img-thumbnail mx-auto d-block room-image"
+                alt="room image" />
         </div>
     </div>
     <div class="row">
@@ -15,11 +15,11 @@
             <h1 class="text-center mt-3">Welcome to General's Quarters</h1>
             <p>
                 Your home away from home, set on the majestic waters of the Atlantic
-                Ocean, this will be a vacation to be remembered Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Repellat debitis asperiores
-                voluptate maiores excepturi repellendus, soluta voluptatum molestias
-                harum! Asperiores quasi dolore, culpa aut eveniet deserunt
-                voluptatum unde reprehenderit cum?
+                Ocean, this will be a vacation to be remembered Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Repellat debitis asperiores voluptate
+                maiores excepturi repellendus, soluta voluptatum molestias harum!
+                Asperiores quasi dolore, culpa aut eveniet deserunt voluptatum unde
+                reprehenderit cum?
             </p>
         </div>
     </div>
@@ -36,8 +36,10 @@
 {{ define "js" }}
 
 <script>
-    document.getElementById("check-availability-button").addEventListener("click", (e) => {
-        let html = `
+    document
+        .getElementById("check-availability-button")
+        .addEventListener("click", (e) => {
+            let html = `
         <form id="check-availability-form" action="" method="get" novalidate class="needs-validation">
             <div class="row">
                 <div class="col">
@@ -56,13 +58,21 @@
         </form>            
         `;
 
-        attention.custom({
-            msg: html,
-            title: "Choose your dates",
-            callback: result => {
-                console.log("called");
-            }
-        });
+            attention.custom({
+                msg: html,
+                title: "Choose your dates",
+                callback: (result) => {
+                    console.log("called");
+
+                    fetch("/search-availability-json")
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log(data);
+                            console.log(data.ok);
+                            console.log(data.message);
+                        });
+                },
+            });
         });
 </script>
 
