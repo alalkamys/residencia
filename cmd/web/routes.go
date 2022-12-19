@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/config"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/handlers"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/handlers"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )

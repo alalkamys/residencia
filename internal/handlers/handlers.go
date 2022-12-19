@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/config"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/models"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/render"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/models"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 )
 
 // must be visible from outside the package

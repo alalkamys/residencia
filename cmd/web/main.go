@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/config"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/handlers"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/render"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/handlers"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 
