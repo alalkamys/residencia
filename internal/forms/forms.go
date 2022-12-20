@@ -21,11 +21,14 @@ func New(data url.Values) *Form {
 
 // Has checks if form field is in POST request and not empty
 func (f *Form) Has(field string, r *http.Request) bool {
-	// better way but not straightforward
-	return r.Form.Get(field) != ""
-	// begginner way but straigtforward
-	// if r.Form.Get(field) == "" {
-	// 	return false
-	// }
-	// return true
+	if r.Form.Get(field) == "" {
+		f.Errors.Add(field, "This field cannot be blank")
+		return false
+	}
+	return true
+}
+
+// Valid returns true if there are no errors, otherwise false
+func (f *Form) Valid() bool {
+	return len(f.Errors) == 0
 }
