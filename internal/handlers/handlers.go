@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/forms"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/models"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 )
@@ -111,5 +112,12 @@ func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 
 // Reservation renders the make reservation page
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
+	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+	})
+}
+
+// PostReservation handles the posting of a reservation form
+func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
+
 }
