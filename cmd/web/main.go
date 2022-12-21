@@ -1,14 +1,16 @@
 package main
 
 import (
+	"encoding/gob"
 	"fmt"
 	"log"
 	"net/http"
 	"time"
 
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/config"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/handlers"
-	"github.com/ShehabEl-DeenAlalkamy/residencia/pkg/render"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/handlers"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/models"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 	"github.com/alexedwards/scs/v2"
 )
 
@@ -22,6 +24,9 @@ var session *scs.SessionManager
 
 // main is the main application function
 func main() {
+	// store Reservation data structure type into the session
+	gob.Register(models.Reservation{})
+
 	var app config.AppConfig
 
 	// change this to true when in production
