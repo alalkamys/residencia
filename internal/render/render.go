@@ -69,6 +69,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *mod
 	}
 }
 
+// CreateTemplateCache creates a template cache as a map
 func CreateTemplateCache() (map[string]*template.Template, error) {
 	// both the following lines are valid but the uncommented one is the most common one to create an empty map
 	// myCache := make(map[string]template.Template)
