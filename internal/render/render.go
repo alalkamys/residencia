@@ -13,6 +13,11 @@ import (
 	"github.com/justinas/nosurf"
 )
 
+var functions = template.FuncMap{}
+
+var app *config.AppConfig
+var pathToTemplates = "./templates"
+
 func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
 	td.Flash = app.Session.PopString(r.Context(), "flash")
 	td.Error = app.Session.PopString(r.Context(), "error")
@@ -20,9 +25,6 @@ func AddDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateDa
 	td.CSRFToken = nosurf.Token(r)
 	return td
 }
-
-var app *config.AppConfig
-var pathToTemplates = "./templates"
 
 // NewTemplates sets the config for the template package
 func NewTemplates(a *config.AppConfig) {
@@ -87,7 +89,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 		name := filepath.Base(page)
 
 		// ts --> template set
-		ts, err := template.New(name).ParseFiles(page)
+		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
 			return myCache, err
 		}
