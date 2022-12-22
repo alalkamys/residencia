@@ -46,8 +46,6 @@ func run() error {
 	// store Reservation data structure type into the session
 	gob.Register(models.Reservation{})
 
-	var app config.AppConfig
-
 	// change this to true when in production
 	app.InProduction = false
 
