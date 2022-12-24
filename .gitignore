@@ -3,3 +3,6 @@
 
 # ignore vscode temp generated files
 .vscode/*
+
+# ignore residencia binary output file
+residencia
