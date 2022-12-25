@@ -10,6 +10,7 @@ import (
 
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/handlers"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/helpers"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/models"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 	"github.com/alexedwards/scs/v2"
@@ -84,8 +85,8 @@ func run() error {
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
-
 	render.NewTemplates(&app)
+	helpers.NewHelpers(&app)
 
 	return nil
 }
