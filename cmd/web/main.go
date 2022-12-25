@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/config"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/handlers"
+	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/helpers"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/models"
 	"github.com/ShehabEl-DeenAlalkamy/residencia/internal/render"
 	"github.com/alexedwards/scs/v2"
@@ -21,6 +23,9 @@ var app config.AppConfig
 
 // a way to make session available in main package
 var session *scs.SessionManager
+
+var infoLog *log.Logger
+var errorLog *log.Logger
 
 // main is the main application function
 func main() {
@@ -49,6 +54,12 @@ func run() error {
 	// change this to true when in production
 	app.InProduction = false
 
+	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	app.InfoLog = infoLog
+
+	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+	app.ErrorLog = errorLog
+
 	// if it was session := scs.New() this would be a different variable other than session defined in the global scope (shadowing)
 	session = scs.New()
 	// how much time you want your session to live
@@ -74,8 +85,8 @@ func run() error {
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
-
 	render.NewTemplates(&app)
+	helpers.NewHelpers(&app)
 
 	return nil
 }
